@@ -18,18 +18,19 @@ const roomContainer = (props, onData) => {
 // room component
 const RoomsPage = ({ currentUser, messages }) => {
   return (
-    <div>
-      <div>
+    <div className="room">
+      <UsersOnline currentUser={ currentUser } />
+      <div className="messages">
         { !!messages.length 
-          ? messages.map((message, index) => <MessagesItem { ...message }
+          ? messages.map((message, index) => <MessagesItem 
+                                              { ...message }
                                               currentUser={ currentUser }
                                               key={ index } 
                                              />) 
           : <div>No message yet! 😶</div>
         }
+        <MessagesNewForm currentUser={ currentUser } />
       </div>
-      <MessagesNewForm currentUser={ currentUser } />
-      <UsersOnline currentUser={ currentUser } />
     </div>
   )
 };

@@ -4,6 +4,6 @@ import { Meteor } from 'meteor/meteor';
 Meteor.publish('users.online', function() {
   return Meteor.users.find(
     { 'status.online': true },
-    { fields: { status: 1, profile: 1 } }
+    { fields: { status: 1, 'services.twitter.screenName': 1 } }
   );
 });

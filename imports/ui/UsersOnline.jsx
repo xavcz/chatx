@@ -10,13 +10,21 @@ const presenceContainer = (props, onData) => {
 };
 const UsersOnline = ({ onlineUsers, currentUser }) => {
   return (
-    <div>
-      <div>Online users:</div>
+    <div className="users-online">
+      <h3>Online users:</h3>
       {
         !!onlineUsers.length 
-          ? onlineUsers.map((user, index) => <div key={ index }>{ user.profile.name }</div>)
+          ? onlineUsers.map((user, index) => (
+              <div 
+                key={ index }
+                className={ user._id === currentUser._id ? 'users-you' : '' }
+              >
+                { user.services.twitter.screenName }
+              </div>
+            ))
           : 'No users connected, that\'s weird, you should be there! 😄'
       }
+      <button className="users-logout" onClick={ () => Meteor.logout() }>Log Out</button>
     </div>
   );
 };

@@ -48,12 +48,10 @@ class MessagesNewForm extends Component {
     const { content, loading } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="content" value={ content } onChange={ this.handleChange } />
-          <button>{ loading ? 'Loading...' : 'Send' }</button>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit} className="messages-new-form">
+        <input type="text" name="content" value={ content } onChange={ this.handleChange } />
+        <button>{ loading ? 'Loading...' : 'Send' }</button>
+      </form>
     );
   }
 };

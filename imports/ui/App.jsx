@@ -10,8 +10,12 @@ const userComposer = (props, onData) => {
   const currentUser = Meteor.user();
   onData(null, { currentUser });
 };
-const App = ({ currentUser }) => {
-  return currentUser ? <RoomsPage currentUser={currentUser} /> : <Accounts.ui.LoginForm />
-};
+const App = ({ currentUser }) => (
+  <div className="main">
+    <h1>Twack</h1>
+    <h3>Like Slack, but with Twitter accounts</h3>
+    { currentUser ? <RoomsPage currentUser={currentUser} /> : <Accounts.ui.LoginForm /> }
+  </div>
+);
 
 export default composeWithTracker(userComposer)(App);
