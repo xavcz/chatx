@@ -35,9 +35,10 @@ class MessagesNewForm extends Component {
     Meteor.call('messages.new', { content: this.state.content }, (err, res) => {
       // handle error
       
-      // no more loading state
+      // no more loading state, clean the input
       this.setState(prevState => ({
-        loading: !prevState.loading
+        loading: !prevState.loading,
+        content: '',
       }));
     });
   }
