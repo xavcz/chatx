@@ -66,6 +66,11 @@ button:focus, button:active {
   justify-content: flex-start;
 }
 
+.messages-item-picture {
+  display: flex;
+  align-items: center;
+}
+
 .messages-item-picture img {
   width: 32px;
   height: 32px;
